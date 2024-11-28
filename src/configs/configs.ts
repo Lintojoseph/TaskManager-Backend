@@ -17,4 +17,11 @@ export default class Configs{
     static accessTokenTimout = process.env.ACCESS_TOKEN_TIMOUT;
     static refreshTokenTimout = process.env.REFRESH_TOKEN_TIMOUT;
 
+    // google Authentication
+
+    static googleClientId=process.env.GOOGLE_CLIENT_ID;
+    static googleClientSecret=process.env.GOOGLE_CLIENT_SECRET;
+    static googleCallbackUrl = process.env.GOOGLE_CALLBACK_URL;
+
+
 }

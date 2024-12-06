@@ -4,3 +4,5 @@ interface ModelfilterInterface{
     sortFields:string[]
 
 }
+
+export default ModelfilterInterface

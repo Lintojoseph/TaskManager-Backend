@@ -3,6 +3,8 @@ const passport=require('passport')
 import Configs from '../configs/configs';
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 import User from '../modules/user/models/User'
+
+
 export class GoogleAuthentication{
     static initialise(app: Application){
         passport.use(
@@ -49,3 +51,5 @@ export class GoogleAuthentication{
         })
     }
 }
+
+

@@ -120,6 +120,166 @@
           }
         }
       }
+    },
+    "/user/": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Endpoint to get all Users",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean",
+                  "example": true
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "total": {
+                      "type": "number",
+                      "example": 1
+                    },
+                    "limit": {
+                      "type": "number",
+                      "example": 10
+                    },
+                    "skip": {
+                      "type": "number",
+                      "example": 0
+                    },
+                    "items": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "_id": {
+                            "type": "string",
+                            "example": "65cd9d8d5cae5ffc348ed638"
+                          },
+                          "name": {
+                            "type": "string",
+                            "example": "string"
+                          },
+                          "mobileNo": {
+                            "type": "string",
+                            "example": "string"
+                          },
+                          "email": {
+                            "type": "string",
+                            "example": "string"
+                          },
+                          "isActive": {
+                            "type": "boolean",
+                            "example": true
+                          },
+                          "isSuperAdmin": {
+                            "type": "boolean",
+                            "example": false
+                          },
+                          "createdAt": {
+                            "type": "string",
+                            "example": "2024-02-15T05:53:06.960Z"
+                          },
+                          "updatedAt": {
+                            "type": "string",
+                            "example": "2024-02-15T05:53:06.960Z"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "xml": {
+                "name": "main"
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "description": "",
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "formData",
+            "description": "Full name of the user",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "mobileNo",
+            "in": "formData",
+            "description": "Mobile number of the user",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "formData",
+            "description": "Email address of the user",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "formData",
+            "description": "Password for the user account",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "isActive",
+            "in": "formData",
+            "description": "Whether the user is active",
+            "required": true,
+            "type": "boolean"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "JWT": []
+          }
+        ]
+      }
     }
   }
 }

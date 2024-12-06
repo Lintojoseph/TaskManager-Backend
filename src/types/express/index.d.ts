@@ -6,7 +6,10 @@ declare global{
     namespace Express{
         export interface Request{
             user?:User;
-            file:any
+            file:any;
+            files:any;
+            sort:any;
+            filterQuery:any
         }
     }
 }

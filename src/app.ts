@@ -1,6 +1,6 @@
 
 import express from 'express'
-const bodyParser = require('body-parser');
+import bodyParser from 'body-parser';
 import routes from "./routes"
 const helmet = require('helmet');
 import "express-async-errors";
@@ -16,14 +16,19 @@ app.use(
       crossOriginEmbedderPolicy: false,
     })
   );
-  app.use(express.json());
+ 
 
-app.use(bodyParser.json());
+  app.use(bodyParser.json()); // Handles JSON requests
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(routes)
 
 app.use("/taskmanager",swaggerUi.serve,swaggerUi.setup(swaggerDocument))
 
+app.use((req, res, next) => {
+  console.log("Headers:", req.headers);
+  console.log("Body:", req.body);
+  next();
+});
 
 
 app.use(CustomErrorHandler);

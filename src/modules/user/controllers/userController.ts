@@ -34,7 +34,7 @@ export default class UserController extends BaseController {
                 next(new ValidationFailedError({errors:errors.array()}))
                 return;
             }
-            const { name, email, password, mobileNo, isActive, } = req.body
+            const { name, email, password, mobileNo,gender,status, isActive, } = req.body
             const user = await this.service.create({ name, email, password, mobileNo, isActive,});
             console.log(user,'created user')
             this.sendSuccessResponse(res,201,{ data :user})
@@ -73,11 +73,15 @@ export default class UserController extends BaseController {
                 name,
                 email,
                 isActive,
+                gender,
+                status,
             }=req.body;
             const body:any={
                 name,
                 email,
                 isActive,
+                gender,
+                status,
             }
             const user=await this.service.update(req.params.id,body)
             if(!user){

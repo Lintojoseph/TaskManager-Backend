@@ -1,7 +1,7 @@
 import {Request, Response, NextFunction } from "express"
 import PermissionDeniedError from "../errors/errorList/permissionDenied";
 
-const authorizer=()=>{
+export const authorizer=()=>{
     return(req:Request,res:Response,next:NextFunction)=>{
         try{
             const user=req.user;
@@ -22,4 +22,3 @@ const authorizer=()=>{
     }
 }
 
-export default authorizer

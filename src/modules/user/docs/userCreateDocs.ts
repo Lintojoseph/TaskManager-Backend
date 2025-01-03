@@ -23,6 +23,11 @@ export const userCreateDoc=async(
     "type": "string",
     
   }
+  #swagger.parameters["gender"] = {
+            "in": "formData",
+            "required": true,
+            "type": "string"
+  }
   #swagger.parameters["email"] = {
     "in": "formData",
     "description": "Email address of the user",

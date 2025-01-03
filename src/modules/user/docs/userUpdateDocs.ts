@@ -18,6 +18,11 @@ export const userUpdateDoc = async (
             "required": false,
             "type": "string"
           }
+          #swagger.parameters["gender"] = {
+            "in": "formData",
+            "required": true,
+            "type": "string"
+          }
           
           #swagger.parameters["isActive"] = {
             "in": "formData",

@@ -1,15 +1,21 @@
 
 import mongoose from "mongoose";
 import ModelfilterInterface from "../../../interfaces/ModelFilterInterfaces";
+import { Genders } from "../../base/enums/gender";
 
 const userSchema=new mongoose.Schema(
     {
     name:{type:String,required:true,unique:false,maxLength:100},
     mobileNo: { type: String,  default: null , unique: true, maxLength: 20 },
- 
+    gender:{type:String,required:true,maxLength:20,enum:Object.values(Genders)},  
     password:{type:String, default: null,maxLength:150,select:false},
     email: { type: String,required:true, unique: true },
     googleId: { type: String, unique: true,sparse: true, default: null  },  
+    roles: {
+      type: [String],
+      enum: ["user", "superAdmin"],
+      default: ["user"],
+    },
     isSuperAdmin: {
         type: Boolean,
         required: false,
@@ -24,7 +30,7 @@ const userSchema=new mongoose.Schema(
       default: true,
     },
       isActive: {
-        type: Boolean,
+        type: Boolean, 
         required: true,
         default: false,
       },
